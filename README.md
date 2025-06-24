@@ -8,7 +8,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [CSS <sub><sup>(Default)</sup></sub>](#css-subsupdefaultsupsub)
+  - [CSS (Default)](#css-default)
   - [SCSS](#scss)
 - [Extending the config](#extending-the-config)
 - [Documentations](#documentations)
@@ -40,7 +40,7 @@ After installing it, a _`.stylelintrc.json`_ file will be created automatically 
 
 This package provides configuration for CSS and SCSS, you can choose which one you want to extend:
 
-### CSS <sub><sup>(Default)</sup></sub>
+### CSS (Default)
 
 ```json
 {
