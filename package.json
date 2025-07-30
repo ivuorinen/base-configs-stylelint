@@ -1,20 +1,34 @@
 {
+  "$schema": "https://www.schemastore.org/package.json",
   "name": "@ivuorinen/stylelint-config",
   "version": "0.3.19",
-  "type": "module",
   "description": "ivuorinen's shareable configuration for stylelint.",
+  "keywords": [
+    "stylelint-config",
+    "stylelint",
+    "config",
+    "ivuorinen"
+  ],
+  "homepage": "https://github.com/ivuorinen/base-configs-stylelint#readme",
+  "bugs": {
+    "url": "https://github.com/ivuorinen/base-configs-stylelint/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivuorinen/base-configs-stylelint.git"
+  },
+  "license": "MIT",
   "author": {
     "name": "Ismo Vuorinen",
     "url": "https://github.com/ivuorinen"
   },
-  "bugs": {
-    "url": "https://github.com/ivuorinen/base-configs-stylelint/issues"
-  },
-  "engines": {
-    "node": ">=22"
-  },
-  "main": "css/index.cjs",
-  "module": "css/index.mjs",
+  "maintainers": [
+    {
+      "name": "Ismo Vuorinen",
+      "url": "https://github.com/ivuorinen"
+    }
+  ],
+  "type": "module",
   "exports": {
     ".": {
       "import": "./css/index.mjs",
@@ -29,26 +43,13 @@
       "require": "./scss/index.cjs"
     }
   },
+  "main": "css/index.cjs",
+  "module": "css/index.mjs",
   "files": [
     "css/*",
     "scss/*",
     "scripts/*"
   ],
-  "homepage": "https://github.com/ivuorinen/base-configs-stylelint#readme",
-  "keywords": [
-    "stylelint-config",
-    "stylelint",
-    "config",
-    "ivuorinen"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ivuorinen/base-configs-stylelint.git"
-  },
   "scripts": {
     "postinstall": "node scripts/postinstall.cjs",
     "eslint:fix": "eslint '**/*.{js,tsx,ts,mjs,cjs}' --fix",
@@ -65,7 +66,22 @@
     "stylelint-config-recommended-scss": "^16.0.0",
     "stylelint-config-standard": "^39.0.0",
     "stylelint-order": "^7.0.0",
-    "stylelint-scss": "^6"
+    "stylelint-scss": "^6.12.1"
+  },
+  "devDependencies": {
+    "@csstools/css-parser-algorithms": "^3.0.5",
+    "@csstools/css-tokenizer": "^3.0.4",
+    "@types/postcss-js": "^4.0.4",
+    "@types/stylelint": "^14.0.0",
+    "@types/typescript": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "yarn@4.9.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "23d15f15743fb59c1dbe658615ef2ed51c54d230",
   "devDependencies": {
