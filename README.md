@@ -1,6 +1,7 @@
 # @ivuorinen/stylelint-config <!-- omit in toc -->
 
 [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license-link] [![ivuorinen's Code Style][style-badge]][style-link]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fivuorinen%2Fbase-configs-stylelint.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fivuorinen%2Fbase-configs-stylelint?ref=badge_shield)
 
 > ivuorinen's shareable configuration for [`stylelint`][stylelint-link].
 
@@ -102,3 +103,6 @@ Distributed under the MIT License. See [LICENSE][license-link] for more informat
 [pull-request-link]: https://github.com/ivuorinen/base-configs-stylelint/pulls
 [style-badge]: https://img.shields.io/badge/code_style-ivuorinen%E2%80%99s-663399.svg?labelColor=292a44&style=flat-square
 [style-link]: https://github.com/ivuorinen/base-configs-stylelint
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fivuorinen%2Fbase-configs-stylelint.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fivuorinen%2Fbase-configs-stylelint?ref=badge_large)
