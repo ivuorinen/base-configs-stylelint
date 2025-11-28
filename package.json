@@ -35,8 +35,8 @@
       "require": "./css/index.cjs"
     },
     "./css": {
-      "import": "./scss/index.mjs",
-      "require": "./scss/index.cjs"
+      "import": "./css/index.mjs",
+      "require": "./css/index.cjs"
     },
     "./scss": {
       "import": "./scss/index.mjs",
