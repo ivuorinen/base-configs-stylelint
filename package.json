@@ -60,11 +60,11 @@
     "prettier:report": "prettier '**/*.{js,tsx,ts,json,mjs,cjs}' --check"
   },
   "dependencies": {
-    "@ivuorinen/config-checker": "^1.1.12",
-    "postcss": "^8",
-    "stylelint": "^16",
-    "stylelint-config-recommended-scss": "^16.0.0",
-    "stylelint-config-standard": "^39.0.0",
+    "@ivuorinen/config-checker": "^1.1.13",
+    "postcss": "^8.5.6",
+    "stylelint": "^16.26.1",
+    "stylelint-config-recommended-scss": "^16.0.2",
+    "stylelint-config-standard": "^39.0.1",
     "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.12.1"
   },
