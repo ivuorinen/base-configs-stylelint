@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/ivuorinen/base-configs-stylelint/compare/v1.0.1...v1.0.2) (2026-02-28)
+
+
+### Bug Fixes
+
+* **ci:** harden workflow permissions and use GITHUB_TOKEN for releases ([#109](https://github.com/ivuorinen/base-configs-stylelint/issues/109)) ([9992182](https://github.com/ivuorinen/base-configs-stylelint/commit/9992182f9eaa725a3947493aaeca6025b0e2ca77))
+
 ## [1.0.1](https://github.com/ivuorinen/base-configs-stylelint/compare/v1.0.0...v1.0.1) (2026-02-28)
 
 # Change Log
