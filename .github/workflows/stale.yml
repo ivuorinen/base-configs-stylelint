@@ -8,10 +8,7 @@ on:
   workflow_call:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  packages: read
-  statuses: read
+permissions: {}
 
 jobs:
   stale:
@@ -19,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write # only for delete-branch option
       issues: write
       pull-requests: write
     steps:
