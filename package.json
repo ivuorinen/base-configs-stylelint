@@ -1,6 +1,6 @@
 {
   "name": "@ivuorinen/stylelint-config",
-  "version": "0.3.19",
+  "version": "1.0.1",
   "type": "module",
   "description": "ivuorinen's shareable configuration for stylelint.",
   "author": {
