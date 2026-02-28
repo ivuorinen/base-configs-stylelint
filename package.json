@@ -62,5 +62,8 @@
     "stylelint-scss": "^7.0.0"
   },
   "gitHead": "23d15f15743fb59c1dbe658615ef2ed51c54d230",
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "devDependencies": {
+    "@ivuorinen/semantic-release-config": "^1.1.3"
+  }
 }
