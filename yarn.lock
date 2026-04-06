@@ -179,22 +179,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ivuorinen/config-checker@npm:^2.0.0, @ivuorinen/config-checker@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@ivuorinen/config-checker@npm:2.1.2"
-  checksum: 10c0/e607eb7196a6c50309b654bb0cd46f64501f2a5ba211933bb73a43a6316b7455b563579a387778d00f31885d0fcf04d3d055aa1bd6ddf580dccca76cbb22d6fd
+"@ivuorinen/config-checker@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@ivuorinen/config-checker@npm:2.2.1"
+  checksum: 10c0/3f4a0d2e19b651fc32a30330e10ef3fadb7a4f1087f0af48f521686c7759624c9f9fd2cc961b26407ed3d57797887ada5c8d2855143052478b274d6d5017cd45
   languageName: node
   linkType: hard
 
-"@ivuorinen/semantic-release-config@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@ivuorinen/semantic-release-config@npm:1.2.0"
+"@ivuorinen/semantic-release-config@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@ivuorinen/semantic-release-config@npm:1.2.1"
   dependencies:
-    "@ivuorinen/config-checker": "npm:^2.0.0"
+    "@ivuorinen/config-checker": "npm:^2.2.1"
     "@semantic-release/github": "npm:^12.0.6"
-    conventional-changelog-conventionalcommits: "npm:^9.0.0"
-    semantic-release: "npm:^25.0.2"
-  checksum: 10c0/945c5d5c64240656a588fd9b4d97e4c606f882d43ad1609809d7c35f7896d7dd950749e70ca703cd7a060658213f635b94589abb04c2398ec9ac02870f12d722
+    conventional-changelog-conventionalcommits: "npm:^9.3.1"
+    semantic-release: "npm:^25.0.3"
+  checksum: 10c0/836d6d1bf24efc3685c1ca682039df31013763fb6239be3d72e3c06c6c61c5c6fa5e2a5b129eb6789ac5058af8070d3f74f0cf551aba4a92b5b442816cd4c85b
   languageName: node
   linkType: hard
 
@@ -202,8 +202,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ivuorinen/stylelint-config@workspace:."
   dependencies:
-    "@ivuorinen/config-checker": "npm:^2.1.2"
-    "@ivuorinen/semantic-release-config": "npm:^1.2.0"
+    "@ivuorinen/config-checker": "npm:^2.2.1"
+    "@ivuorinen/semantic-release-config": "npm:^1.2.1"
     postcss: "npm:^8.5.8"
     stylelint: "npm:^17.6.0"
     stylelint-config-recommended-scss: "npm:^17.0.0"
@@ -986,12 +986,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"brace-expansion@npm:^5.0.2":
-  version: 5.0.4
-  resolution: "brace-expansion@npm:5.0.4"
+"brace-expansion@npm:>=5.0.5":
+  version: 5.0.5
+  resolution: "brace-expansion@npm:5.0.5"
   dependencies:
     balanced-match: "npm:^4.0.2"
-  checksum: 10c0/359cbcfa80b2eb914ca1f3440e92313fbfe7919ee6b274c35db55bec555aded69dac5ee78f102cec90c35f98c20fa43d10936d0cd9978158823c249257e1643a
+  checksum: 10c0/4d238e14ed4f5cc9c07285550a41cef23121ca08ba99fa9eb5b55b580dcb6bf868b8210aa10526bdc9f8dc97f33ca2a7259039c4cc131a93042beddb424c48e3
   languageName: node
   linkType: hard
 
@@ -1241,7 +1241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:^9.0.0":
+"conventional-changelog-conventionalcommits@npm:^9.3.1":
   version: 9.3.1
   resolution: "conventional-changelog-conventionalcommits@npm:9.3.1"
   dependencies:
@@ -3376,17 +3376,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picomatch@npm:>=4.0.4":
+  version: 4.0.4
+  resolution: "picomatch@npm:4.0.4"
+  checksum: 10c0/e2c6023372cc7b5764719a5ffb9da0f8e781212fa7ca4bd0562db929df8e117460f00dff3cb7509dacfc06b86de924b247f504d0ce1806a37fac4633081466b0
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.3.1":
   version: 2.3.2
   resolution: "picomatch@npm:2.3.2"
   checksum: 10c0/a554d1709e59be97d1acb9eaedbbc700a5c03dbd4579807baed95100b00420bc729335440ef15004ae2378984e2487a7c1cebd743cfdb72b6fa9ab69223c0d61
-  languageName: node
-  linkType: hard
-
-"picomatch@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "picomatch@npm:4.0.3"
-  checksum: 10c0/9582c951e95eebee5434f59e426cddd228a7b97a0161a375aed4be244bd3fe8e3a31b846808ea14ef2c8a2527a6eeab7b3946a67d5979e81694654f939473ae2
   languageName: node
   linkType: hard
 
@@ -3745,7 +3745,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:^25.0.2":
+"semantic-release@npm:^25.0.3":
   version: 25.0.3
   resolution: "semantic-release@npm:25.0.3"
   dependencies:
@@ -4458,10 +4458,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^7.0.0":
-  version: 7.22.0
-  resolution: "undici@npm:7.22.0"
-  checksum: 10c0/09777c06f3f18f761f03e3a4c9c04fd9fcca8ad02ccea43602ee4adf73fcba082806f1afb637f6ea714ef6279c5323c25b16d435814c63db720f63bfc20d316b
+"undici@npm:^7.24.0":
+  version: 7.24.7
+  resolution: "undici@npm:7.24.7"
+  checksum: 10c0/779c67e81677324763ea00ea547ba74757472ebe2625d046d592434ee19d9d148fe0eaef7006c0185096614249ac0f179e7f559b202b518af8d587e9548559b6
   languageName: node
   linkType: hard
 
