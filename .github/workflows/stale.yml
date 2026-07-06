@@ -8,6 +8,10 @@ on:
   workflow_call:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions: {}
 
 jobs:
@@ -16,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      issues: write
-      pull-requests: write
+      issues: write # to comment on and label issues
+      pull-requests: write # to comment on and label pull requests
     steps:
-      - uses: ivuorinen/actions/stale@121af64df2985470a81ff4e2eb60cdc52cb7745b # v2026.06.14
+      - uses: ivuorinen/actions/stale@94a4f68a6b95ecc1677fbcac1683119fd869adf7 # v2026.07.04
