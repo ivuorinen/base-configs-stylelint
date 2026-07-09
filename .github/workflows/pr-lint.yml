@@ -20,11 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
-      statuses: write
-      contents: read
-      packages: read
+      statuses: write # to update commit statuses
+      contents: read # to check out the repository
+      packages: read # to read packages
 
     steps:
       - name: Run PR Lint
         # https://github.com/ivuorinen/actions
-        uses: ivuorinen/actions/pr-lint@121af64df2985470a81ff4e2eb60cdc52cb7745b # v2026.06.14
+        uses: ivuorinen/actions/pr-lint@94a4f68a6b95ecc1677fbcac1683119fd869adf7 # v2026.07.04
