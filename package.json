@@ -21,8 +21,8 @@
       "require": "./css/index.cjs"
     },
     "./css": {
-      "import": "./scss/index.mjs",
-      "require": "./scss/index.cjs"
+      "import": "./css/index.mjs",
+      "require": "./css/index.cjs"
     },
     "./scss": {
       "import": "./scss/index.mjs",
@@ -50,7 +50,8 @@
     "url": "git+https://github.com/ivuorinen/base-configs-stylelint.git"
   },
   "scripts": {
-    "postinstall": "node scripts/postinstall.cjs"
+    "postinstall": "node scripts/postinstall.cjs",
+    "test": "node test/smoke.mjs"
   },
   "dependencies": {
     "@ivuorinen/config-checker": "^2.2.1",

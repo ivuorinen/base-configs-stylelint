@@ -38,13 +38,23 @@ After installing it, a _`.stylelintrc.json`_ file will be created automatically 
 
 ## Usage
 
-This package provides configuration for CSS and SCSS, you can choose which one you want to extend:
+This package provides configuration for CSS and SCSS, you can choose which one you want to extend.
+
+Whitespace and formatting rules are not included — stylelint 16 removed them, and a formatter such as [Prettier][prettier-link] is the right tool for that job.
 
 ### CSS <sub><sup>(Default)</sup></sub>
 
 ```json
 {
   "extends": ["@ivuorinen/stylelint-config/css"]
+}
+```
+
+The bare package name is equivalent:
+
+```json
+{
+  "extends": ["@ivuorinen/stylelint-config"]
 }
 ```
 
@@ -99,6 +109,7 @@ Distributed under the MIT License. See [LICENSE][license-link] for more informat
 [license-link]: ./LICENSE
 [npm-badge]: https://img.shields.io/npm/v/@ivuorinen/stylelint-config?style=flat-square&labelColor=292a44&color=663399
 [npm-link]: https://www.npmjs.com/package/@ivuorinen/stylelint-config
+[prettier-link]: https://prettier.io
 [pull-request-link]: https://github.com/ivuorinen/base-configs-stylelint/pulls
 [style-badge]: https://img.shields.io/badge/code_style-ivuorinen%E2%80%99s-663399.svg?labelColor=292a44&style=flat-square
 [style-link]: https://github.com/ivuorinen/base-configs-stylelint
