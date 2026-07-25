@@ -23,7 +23,10 @@ module.exports = {
     'scss/load-no-partial-leading-underscore': true,
     'scss/load-partial-extension': 'never',
     'scss/media-feature-value-dollar-variable': null,
-    'scss/no-duplicate-dollar-variables': [null, { ignoreInsideAtRules: ['if', 'mixin'] }],
+    // Off. It was written as `[null, { ignoreInsideAtRules: [...] }]`, which
+    // stylelint normalises to plain null — the options never applied. Kept off
+    // so behaviour is unchanged; enabling it is a separate decision.
+    'scss/no-duplicate-dollar-variables': null,
     'scss/no-duplicate-mixins': true,
     'scss/operator-no-newline-after': true,
     'scss/operator-no-newline-before': true,
