@@ -8,7 +8,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [CSS <sub><sup>(Default)</sup></sub>](#css-subsupdefaultsupsub)
+  - [CSS <sub><sup>(Default)</sup></sub>](#css-default)
   - [SCSS](#scss)
 - [Extending the config](#extending-the-config)
 - [Documentations](#documentations)
