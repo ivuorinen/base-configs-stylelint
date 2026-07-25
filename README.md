@@ -36,6 +36,17 @@ After installing it, a _`.stylelintrc.json`_ file will be created automatically 
 }
 ```
 
+The file is only written when this package is a **direct** dependency of the
+project being installed, and never when it arrives as a transitive dependency of
+something else. It is also skipped when a stylelint config already exists. Every
+outcome is logged during install, so if no file appears the reason is in the
+install output.
+
+To suppress it entirely, set `IVUORINEN_STYLELINT_NO_POSTINSTALL=1`. Note that
+npm 11 gates install scripts by default, so on a first install you may see
+`npm warn allow-scripts` instead of a config file — in that case just create the
+file by hand with the contents above.
+
 ## Usage
 
 This package provides configuration for CSS and SCSS, you can choose which one you want to extend.
@@ -66,6 +77,15 @@ The bare package name is equivalent:
 }
 ```
 
+The SCSS config enforces two rules about `@use`/`@forward` paths that are worth
+calling out, because they were silently inert before `stylelint-scss` 7 renamed
+them:
+
+| Rule | Effect |
+| --- | --- |
+| `scss/load-partial-extension: 'never'` | `@use './tokens.scss'` errors; write `@use './tokens'` |
+| `scss/load-no-partial-leading-underscore: true` | `@use './_mixins'` errors; write `@use './mixins'` |
+
 ## Extending the config
 
 The defined rules can be modified by adding other configurations, plugins or custom rules:
@@ -77,12 +97,16 @@ The defined rules can be modified by adding other configurations, plugins or cus
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["extends", "ignores"]
+        "ignoreAtRules": ["tailwind", "apply", "screen"]
       }
     ]
   }
 }
 ```
+
+SCSS consumers should configure `scss/at-rule-no-unknown` instead — the SCSS entry
+point disables the core `at-rule-no-unknown` and delegates to the SCSS-aware
+version.
 
 ## Documentations
 
@@ -100,13 +124,21 @@ See [CHANGELOG][changelog-link] for a human-readable history of changes.
 
 Distributed under the MIT License. See [LICENSE][license-link] for more information.
 
+### Dependency license note <!-- omit in toc -->
+
+`svg-tags@1.0.0`, reached transitively via `stylelint`, ships no `license` field
+in its `package.json`, so license scanners report it as `UNKNOWN`. Its repository
+states MIT. Recorded here so consumers with a license allowlist can allow it
+deliberately rather than treating it as an unreviewed gap. Every other package in
+the tree is MIT or MIT-compatible.
+
 [changelog-link]: https://github.com/ivuorinen/base-configs-stylelint/releases
 [stylelint-docs-link]: https://stylelint.io
 [stylelint-link]: https://github.com/stylelint/stylelint
 [contributing-link]: https://github.com/ivuorinen/.github/blob/main/CONTRIBUTING.md
 [issue-link]: https://github.com/ivuorinen/base-configs-stylelint/issues
 [license-badge]: https://img.shields.io/github/license/ivuorinen/base-configs-stylelint?style=flat-square&labelColor=292a44&color=663399
-[license-link]: ./LICENSE
+[license-link]: ./LICENSE.md
 [npm-badge]: https://img.shields.io/npm/v/@ivuorinen/stylelint-config?style=flat-square&labelColor=292a44&color=663399
 [npm-link]: https://www.npmjs.com/package/@ivuorinen/stylelint-config
 [prettier-link]: https://prettier.io
