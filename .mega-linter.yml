@@ -35,8 +35,9 @@ ENABLE_LINTERS:
 
 YAML_YAMLLINT_CONFIG_FILE: .yamllint.yml
 MARKDOWN_MARKDOWNLINT_CONFIG_FILE: .markdownlint.json
-JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
-TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.json
+# ESLint config is intentionally not pinned here: the flat config lives in
+# eslint.config.mjs and MegaLinter finds it on its own. Pointing at a
+# .eslintrc.json that does not exist silently disabled the JS/TS gate.
 
 FILTER_REGEX_EXCLUDE: >
   (node_modules|\.automation/test|docs/json-schemas|\.github/workflows)
