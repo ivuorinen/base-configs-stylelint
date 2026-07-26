@@ -59,11 +59,21 @@ if (foundConfig.length > 0) {
 }
 
 const filePath = path.join(initCwd, '.stylelintrc.json')
+const contents = `${JSON.stringify({ extends: [`${PKG}/css`] }, undefined, 2)}\n`
 
-if (fs.existsSync(filePath)) {
-  log(`${filePath} already exists, leaving it alone.`)
+// Create-exclusive rather than existsSync-then-write: the 'wx' flag makes
+// "does it exist?" and "write it" one atomic syscall, so a concurrent install
+// cannot slip in between the two and get its config overwritten.
+try {
+  fs.writeFileSync(filePath, contents, { flag: 'wx' })
+  log(`wrote ${filePath}`)
+} catch (error) {
+  if (error.code === 'EEXIST') {
+    log(`${filePath} already exists, leaving it alone.`)
+    process.exit(0)
+  }
+
+  // Still never a reason to fail the install -- report and move on.
+  log(`could not write ${filePath}: ${error.message}`)
   process.exit(0)
 }
-
-fs.writeFileSync(filePath, `${JSON.stringify({ extends: [`${PKG}/css`] }, undefined, 2)}\n`)
-log(`wrote ${filePath}`)

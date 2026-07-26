@@ -174,6 +174,23 @@ try {
     )
   })
 
+  // Re-running must leave an existing config untouched. In practice
+  // config-checker detects the file first and returns before the write is
+  // reached; the create-exclusive 'wx' flag is the backstop for the race where
+  // another process creates it after that check. This asserts the outcome both
+  // paths must produce.
+  check(() => {
+    const sentinel = '{ "extends": ["@ivuorinen/stylelint-config/scss"] }\n'
+    fs.writeFileSync(rcJson, sentinel)
+    const result = runPostinstall({ INIT_CWD: fixture })
+    assert.strictEqual(result.status, 0, `postinstall exited ${result.status}\n${result.stderr}`)
+    assert.strictEqual(
+      fs.readFileSync(rcJson, 'utf8'),
+      sentinel,
+      'postinstall overwrote an existing .stylelintrc.json'
+    )
+  })
+
   // A missing INIT_CWD must skip cleanly, never abort the consumer's install.
   // This asserts the requirement, not one particular guard — any code path that
   // exits 0 without a stack trace satisfies it.
