@@ -31,4 +31,9 @@ jobs:
 
   Test:
     name: Smoke Test
+    # A called workflow cannot request more than its caller was granted, and
+    # this file sets `permissions: {}` at the top. Without granting it here the
+    # run fails at startup before any job is created.
+    permissions:
+      contents: read # to check out the repository
     uses: ./.github/workflows/test.yml

@@ -142,7 +142,9 @@ try {
   check(() => {
     const copies = run(process.execPath, [
       '-e',
-      `const fs=require('node:fs'),p=require('node:path');
+      // String.raw so the \n inside the child script stays a newline escape for
+      // the child to interpret, without double-escaping it here.
+      String.raw`const fs=require('node:fs'),p=require('node:path');
        const found=[];
        (function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){
          if(!e.isDirectory())continue;
@@ -150,7 +152,7 @@ try {
          if(e.name==='stylelint'&&fs.existsSync(p.join(full,'package.json')))found.push(full);
          if(e.name!=='types')walk(full);
        }})('node_modules');
-       console.log(found.join('\\n'))`
+       console.log(found.join('\n'))`
     ]).trim()
 
     assert.strictEqual(

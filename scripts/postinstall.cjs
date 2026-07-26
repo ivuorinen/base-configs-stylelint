@@ -59,7 +59,8 @@ if (foundConfig.length > 0) {
 }
 
 const filePath = path.join(initCwd, '.stylelintrc.json')
-const contents = `${JSON.stringify({ extends: [`${PKG}/css`] }, undefined, 2)}\n`
+const starterConfig = { extends: [`${PKG}/css`] }
+const contents = `${JSON.stringify(starterConfig, undefined, 2)}\n`
 
 // Create-exclusive rather than existsSync-then-write: the 'wx' flag makes
 // "does it exist?" and "write it" one atomic syscall, so a concurrent install
