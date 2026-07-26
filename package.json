@@ -11,7 +11,7 @@
     "url": "https://github.com/ivuorinen/base-configs-stylelint/issues"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19.0"
   },
   "main": "css/index.cjs",
   "module": "css/index.mjs",
@@ -21,8 +21,8 @@
       "require": "./css/index.cjs"
     },
     "./css": {
-      "import": "./scss/index.mjs",
-      "require": "./scss/index.cjs"
+      "import": "./css/index.mjs",
+      "require": "./css/index.cjs"
     },
     "./scss": {
       "import": "./scss/index.mjs",
@@ -50,25 +50,31 @@
     "url": "git+https://github.com/ivuorinen/base-configs-stylelint.git"
   },
   "scripts": {
-    "postinstall": "node scripts/postinstall.cjs"
+    "postinstall": "node scripts/postinstall.cjs",
+    "test": "node test/smoke.mjs"
   },
   "dependencies": {
     "@ivuorinen/config-checker": "^2.2.1",
-    "postcss": "^8.5.8",
-    "stylelint": "^17.6.0",
+    "postcss": "^8.5.18",
     "stylelint-config-recommended-scss": "^17.0.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-order": "^8.1.1",
     "stylelint-scss": "^7.0.0"
   },
-  "gitHead": "23d15f15743fb59c1dbe658615ef2ed51c54d230",
+  "peerDependencies": {
+    "stylelint": "^17.0.0"
+  },
   "packageManager": "yarn@4.17.1",
   "devDependencies": {
-    "@ivuorinen/semantic-release-config": "^1.2.1"
+    "@ivuorinen/eslint-config": "^1.4.0",
+    "@ivuorinen/semantic-release-config": "^1.2.1",
+    "eslint": "^10.7.0",
+    "stylelint": "^17.6.0"
   },
   "resolutions": {
-    "brace-expansion": "^5.0.7",
+    "brace-expansion": "^5.0.8",
     "picomatch": "^4.0.4",
+    "postcss": "^8.5.18",
     "undici": "^8.0.0"
   }
 }
