@@ -54,18 +54,39 @@ changed, and `^` ranges carry it automatically.
 
 ## Fix
 
-Remove the rule now that scope pinning handles the CI case:
+Now that scope pinning handles the CI case, raise the rule to `major` — do not
+delete it:
 
 ```diff
    "releaseRules": [
 -    { "breaking": true, "type": "chore", "scope": "deps", "release": "minor" },
++    { "breaking": true, "type": "chore", "scope": "deps", "release": "major" },
      { "type": "chore", "scope": "deps", "release": "patch" },
      { "type": "chore", "scope": "actions", "release": false }
    ]
 ```
 
-A breaking `chore(deps)!` then falls through to the conventionalcommits default
-and takes a major, which is what it earns.
+**Deleting the rule makes it worse, not better.** `analyze-commit.js` takes the
+highest release among *all* matching custom rules, and the conventionalcommits
+defaults are consulted only when *no* custom rule matches. With the breaking
+rule gone, `chore(deps)!` still matches `{ type: chore, scope: deps, release:
+patch }`, so it never reaches the defaults — it drops from minor to patch.
+
+A global `{ breaking: true, release: "major" }` first rule is also wrong here:
+it outranks `{ type: chore, scope: actions, release: false }`, so
+`chore(actions)!` would release a major and undo the scope pinning this
+repository just adopted.
+
+Measured with this repository's installed `@semantic-release/commit-analyzer`:
+
+```text
+                 current   delete rule   scoped major   global major
+chore(deps)!     minor     patch         major          major
+chore(deps)      patch     patch         patch          patch
+chore(actions)!  none      none          none           major   <- regression
+chore(actions)   none      none          none           none
+feat!            major     major         major          major
+```
 
 This cannot be done from this repository — `releaseRules` live in
 `@ivuorinen/semantic-release-config`, and `.releaserc.json` cannot override just
