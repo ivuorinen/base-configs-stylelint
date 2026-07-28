@@ -2,5 +2,16 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
         "github>ivuorinen/renovate-config"
+    ],
+    "packageRules": [
+        {
+            "description": "GitHub Actions and pre-commit hooks never reach the published tarball (`files` is css/*, scss/*, scripts/*), so updating one must never bump the package version. Pinning the scope to `actions` makes the shared releaseRule `{type: chore, scope: actions, release: false}` match every time, for patch, minor and major alike -- verified that the rule also suppresses `chore(actions)!` and a BREAKING CHANGE footer. Renovate was otherwise emitting `chore(deps)` for some of these updates, which releases a patch, or `chore(deps)!` for majors, which releases a minor. To release deliberately, retitle the PR: squash is this repo's only merge method and squash_merge_commit_title is COMMIT_OR_PR_TITLE, so the title you set is the commit subject semantic-release reads.",
+            "matchManagers": [
+                "github-actions",
+                "pre-commit"
+            ],
+            "semanticCommitType": "chore",
+            "semanticCommitScope": "actions"
+        }
     ]
 }
