@@ -83,12 +83,26 @@ jobs:
 
       - name: Install Dependencies
         shell: bash
-        if: steps.cache.outputs.cache-hit != 'true'
+        # Runs unconditionally, including on a cache hit. It used to be gated on
+        # `cache-hit != 'true'`, which voided the guarantee below in exactly the
+        # case it is written for: the cache key is the yarn.lock hash, so a
+        # package.json-only dependency bump kept the key, restored the previous
+        # node_modules, skipped this step, and released against a dependency tree
+        # that no longer matched the manifest. That shipped 1.4.0 -- semantic
+        # -release read @ivuorinen/semantic-release-config 1.2.1's rules from the
+        # stale cache and cut a minor where 2.0.0's rules say major.
+        #
         # --immutable installs exactly what yarn.lock resolves and fails if the
         # lockfile would change, so a release can never silently pull a version
-        # nobody reviewed. --mode=skip-build is the Yarn v2+ equivalent of
-        # --ignore-scripts; .yarnrc.yml sets enableScripts: false too, but state
-        # it on the command as well so the guarantee is visible at the call site.
+        # nobody reviewed. That check is worthless when skipped, and cheap when
+        # not: against a restored node_modules it relinks rather than refetches.
+        # It also makes a desynced lockfile fail the release outright, which is
+        # why the cache key does not need package.json in it -- the install
+        # reconciles node_modules to the lockfile whatever the cache restored.
+        #
+        # --mode=skip-build is the Yarn v2+ equivalent of --ignore-scripts;
+        # .yarnrc.yml sets enableScripts: false too, but state it on the command
+        # as well so the guarantee is visible at the call site.
         run: yarn install --immutable --mode=skip-build
 
       - name: Semantic Release
