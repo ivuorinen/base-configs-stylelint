@@ -29,6 +29,39 @@ jobs:
         # https://github.com/ivuorinen/actions
         uses: ivuorinen/actions/pr-lint@94a4f68a6b95ecc1677fbcac1683119fd869adf7 # v2026.07.04
 
+  Lockfile:
+    name: Lockfile
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read # to check out the repository
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install and enable corepack
+        shell: sh
+        # Same pin as publish.yml so both paths resolve Yarn identically.
+        # Renovate has no manager for versions inside `run:`, so bump this by
+        # hand when corepack releases.
+        run: npm install -g corepack@0.35.0 --ignore-scripts --force && corepack enable
+
+      # A dedicated job so it can be a required status on its own, separate from
+      # the smoke test -- that one packs a tarball and deliberately has no local
+      # install to check. #181 merged a `^2.0.0` manifest against a 1.2.1
+      # lockfile because nothing on the PR path ran this.
+      - name: Verify lockfile satisfies package.json
+        shell: bash
+        run: yarn install --immutable --mode=skip-build
+
   Test:
     name: Smoke Test
     # A called workflow cannot request more than its caller was granted, and
