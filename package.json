@@ -67,7 +67,7 @@
   "packageManager": "yarn@4.17.1",
   "devDependencies": {
     "@ivuorinen/eslint-config": "^1.4.0",
-    "@ivuorinen/semantic-release-config": "^1.2.1",
+    "@ivuorinen/semantic-release-config": "^2.0.0",
     "eslint": "^10.7.0",
     "stylelint": "^17.6.0"
   },
