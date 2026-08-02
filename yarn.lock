@@ -52,17 +52,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-validator-identifier@npm:^7.22.20":
+"@babel/helper-validator-identifier@npm:^7.22.20, @babel/helper-validator-identifier@npm:^7.28.5":
   version: 7.29.7
   resolution: "@babel/helper-validator-identifier@npm:7.29.7"
   checksum: 10c0/4795354e7ae0dcafa72de1cd04ec51252dc1498517170beaf019e03effc5b7bf13c6b21a3949a77e07b8125be7f106ed1131350d8ebd4566ae874094a726d62b
-  languageName: node
-  linkType: hard
-
-"@babel/helper-validator-identifier@npm:^7.28.5":
-  version: 7.28.5
-  resolution: "@babel/helper-validator-identifier@npm:7.28.5"
-  checksum: 10c0/42aaebed91f739a41f3d80b72752d1f95fd7c72394e8e4bd7cdd88817e0774d80a432451bcba17c2c642c257c483bf1d409dd4548883429ea9493a3bc4ab0847
   languageName: node
   linkType: hard
 
@@ -357,14 +350,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ivuorinen/config-checker@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@ivuorinen/config-checker@npm:2.2.1"
-  checksum: 10c0/3f4a0d2e19b651fc32a30330e10ef3fadb7a4f1087f0af48f521686c7759624c9f9fd2cc961b26407ed3d57797887ada5c8d2855143052478b274d6d5017cd45
-  languageName: node
-  linkType: hard
-
-"@ivuorinen/config-checker@npm:^2.2.17":
+"@ivuorinen/config-checker@npm:^2.2.1, @ivuorinen/config-checker@npm:^2.2.17":
   version: 2.6.2
   resolution: "@ivuorinen/config-checker@npm:2.6.2"
   checksum: 10c0/d648db57f54b71facfc771ef7f3906e990bc4d00b439cd994374f78c7a826104004843c980bd614e29037defb101218073bdd3dbd5b85327f0a9f212c7b8e47b
@@ -842,34 +828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:^12.0.0":
-  version: 12.0.6
-  resolution: "@semantic-release/github@npm:12.0.6"
-  dependencies:
-    "@octokit/core": "npm:^7.0.0"
-    "@octokit/plugin-paginate-rest": "npm:^14.0.0"
-    "@octokit/plugin-retry": "npm:^8.0.0"
-    "@octokit/plugin-throttling": "npm:^11.0.0"
-    "@semantic-release/error": "npm:^4.0.0"
-    aggregate-error: "npm:^5.0.0"
-    debug: "npm:^4.3.4"
-    dir-glob: "npm:^3.0.1"
-    http-proxy-agent: "npm:^7.0.0"
-    https-proxy-agent: "npm:^7.0.0"
-    issue-parser: "npm:^7.0.0"
-    lodash-es: "npm:^4.17.21"
-    mime: "npm:^4.0.0"
-    p-filter: "npm:^4.0.0"
-    tinyglobby: "npm:^0.2.14"
-    undici: "npm:^7.0.0"
-    url-join: "npm:^5.0.0"
-  peerDependencies:
-    semantic-release: ">=24.1.0"
-  checksum: 10c0/2f6b24d73790dbe14e3ac08814fc56f069ec4c96a0e471eeb5247d934b525b54cee9a6d296e90edb6566bb309cf81a04084551e8201362dfd82ca436a2813706
-  languageName: node
-  linkType: hard
-
-"@semantic-release/github@npm:^12.0.8":
+"@semantic-release/github@npm:^12.0.0, @semantic-release/github@npm:^12.0.8":
   version: 12.0.9
   resolution: "@semantic-release/github@npm:12.0.9"
   dependencies:
@@ -2642,17 +2601,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flatted@npm:^3.2.9":
+"flatted@npm:^3.2.9, flatted@npm:^3.3.3":
   version: 3.4.3
   resolution: "flatted@npm:3.4.3"
   checksum: 10c0/0b36eba483a68dda5a2c4dda9cab61dc1c57a3bd9bd6942d1c6fac9c94c86fb6295c7167f33f94f72b5a79ccf95bf5c2a0cf99f73888ef858252439e149bf24b
-  languageName: node
-  linkType: hard
-
-"flatted@npm:^3.3.3":
-  version: 3.4.2
-  resolution: "flatted@npm:3.4.2"
-  checksum: 10c0/a65b67aae7172d6cdf63691be7de6c5cd5adbdfdfe2e9da1a09b617c9512ed794037741ee53d93114276bff3f93cd3b0d97d54f9b316e1e4885dde6e9ffdf7ed
   languageName: node
   linkType: hard
 
@@ -3027,7 +2979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"https-proxy-agent@npm:^7.0.0, https-proxy-agent@npm:^7.0.1":
+"https-proxy-agent@npm:^7.0.1":
   version: 7.0.6
   resolution: "https-proxy-agent@npm:7.0.6"
   dependencies:
@@ -3910,16 +3862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.0.3, minimatch@npm:^10.1.1, minimatch@npm:^10.2.2":
-  version: 10.2.4
-  resolution: "minimatch@npm:10.2.4"
-  dependencies:
-    brace-expansion: "npm:^5.0.2"
-  checksum: 10c0/35f3dfb7b99b51efd46afd378486889f590e7efb10e0f6a10ba6800428cf65c9a8dedb74427d0570b318d749b543dc4e85f06d46d2858bc8cac7e1eb49a95945
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^10.2.4, minimatch@npm:^10.2.5":
+"minimatch@npm:^10.0.3, minimatch@npm:^10.1.1, minimatch@npm:^10.2.2, minimatch@npm:^10.2.4, minimatch@npm:^10.2.5":
   version: 10.2.5
   resolution: "minimatch@npm:10.2.5"
   dependencies:
@@ -5257,16 +5200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.1.1, semver@npm:^7.1.2, semver@npm:^7.3.2, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.7.2, semver@npm:^7.7.4":
-  version: 7.7.4
-  resolution: "semver@npm:7.7.4"
-  bin:
-    semver: bin/semver.js
-  checksum: 10c0/5215ad0234e2845d4ea5bb9d836d42b03499546ddafb12075566899fc617f68794bb6f146076b6881d755de17d6c6cc73372555879ec7dce2c2feee947866ad2
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.5.4, semver@npm:^7.6.3, semver@npm:^7.7.3":
+"semver@npm:^7.1.1, semver@npm:^7.1.2, semver@npm:^7.3.2, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.3, semver@npm:^7.7.2, semver@npm:^7.7.3, semver@npm:^7.7.4":
   version: 7.8.5
   resolution: "semver@npm:7.8.5"
   bin:
@@ -5867,17 +5801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.14":
-  version: 0.2.15
-  resolution: "tinyglobby@npm:0.2.15"
-  dependencies:
-    fdir: "npm:^6.5.0"
-    picomatch: "npm:^4.0.3"
-  checksum: 10c0/869c31490d0d88eedb8305d178d4c75e7463e820df5a9b9d388291daf93e8b1eb5de1dad1c1e139767e4269fe75f3b10d5009b2cc14db96ff98986920a186844
-  languageName: node
-  linkType: hard
-
-"tinyglobby@npm:^0.2.15":
+"tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.14, tinyglobby@npm:^0.2.15":
   version: 0.2.17
   resolution: "tinyglobby@npm:0.2.17"
   dependencies:
