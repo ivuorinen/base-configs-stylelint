@@ -28,7 +28,7 @@ npm install @ivuorinen/stylelint-config --save-dev
 yarn add @ivuorinen/stylelint-config --dev
 ```
 
-After installing it, a _`.stylelintrc.json`_ file will be created automatically in the project's root folder with the following configuration:
+Create a _`.stylelintrc.json`_ in the project's root folder with the following configuration:
 
 ```json
 {
@@ -36,16 +36,22 @@ After installing it, a _`.stylelintrc.json`_ file will be created automatically 
 }
 ```
 
-The file is only written when this package is a **direct** dependency of the
-project being installed, and never when it arrives as a transitive dependency of
-something else. It is also skipped when a stylelint config already exists. Every
-outcome is logged during install, so if no file appears the reason is in the
-install output.
+With npm, a `postinstall` script writes exactly this file for you. It only runs
+when this package is a **direct** dependency of the project being installed,
+never when it arrives as a transitive dependency of something else, and it is
+skipped when a stylelint config already exists; each outcome is logged in the
+install output. npm 11 runs the script but warns that it is not covered by
+`allowScripts`.
 
-To suppress it entirely, set `IVUORINEN_STYLELINT_NO_POSTINSTALL=1`. Note that
-npm 11 gates install scripts by default, so on a first install you may see
-`npm warn allow-scripts` instead of a config file — in that case just create the
-file by hand with the contents above.
+Other package managers do not run it:
+
+- **Yarn 4** does not run dependency install scripts, so nothing is written or
+  logged — create the file by hand as above.
+- **pnpm** refuses unapproved install scripts and fails the install until you
+  allow this package with `pnpm approve-builds`.
+
+To suppress the script, set `IVUORINEN_STYLELINT_NO_POSTINSTALL` to `1`, `true`
+or `yes`; any other value (including `0` and `false`) leaves it enabled.
 
 ## Usage
 
@@ -114,7 +120,7 @@ Read the [stylelint docs][stylelint-docs-link] for more information.
 
 ## Contributing
 
-If you are interested in helping contribute, please take a look at our [contribution guidelines][contributing-link] and open an [issue][issue-link] or [pull request][pull-request-link].
+If you are interested in helping contribute, please open an [issue][issue-link] or [pull request][pull-request-link].
 
 ## Changelog
 
@@ -135,7 +141,6 @@ the tree is MIT or MIT-compatible.
 [changelog-link]: https://github.com/ivuorinen/base-configs-stylelint/releases
 [stylelint-docs-link]: https://stylelint.io
 [stylelint-link]: https://github.com/stylelint/stylelint
-[contributing-link]: https://github.com/ivuorinen/.github/blob/main/CONTRIBUTING.md
 [issue-link]: https://github.com/ivuorinen/base-configs-stylelint/issues
 [license-badge]: https://img.shields.io/github/license/ivuorinen/base-configs-stylelint?style=flat-square&labelColor=292a44&color=663399
 [license-link]: ./LICENSE.md

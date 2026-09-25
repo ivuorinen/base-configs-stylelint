@@ -23,7 +23,9 @@ if (!initCwd) {
   process.exit(0)
 }
 
-if (process.env.IVUORINEN_STYLELINT_NO_POSTINSTALL) {
+// Compare the value, not mere presence: environment variables are strings, so
+// a truthiness check would treat "0" and "false" as a request to skip.
+if (/^(?:1|true|yes)$/iu.test(process.env.IVUORINEN_STYLELINT_NO_POSTINSTALL ?? '')) {
   log('IVUORINEN_STYLELINT_NO_POSTINSTALL is set, skipping config creation.')
   process.exit(0)
 }
