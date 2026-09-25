@@ -228,6 +228,22 @@ try {
     }
   })
 
+  // The opt-out must honour the value, not mere presence: a CI template that
+  // sets IVUORINEN_STYLELINT_NO_POSTINSTALL=0 or =false to mean "run it" must
+  // still get a config, and =1/=true must suppress it.
+  check(() => {
+    for (const [value, expectWrite] of [['1', false], ['true', false], ['0', true], ['false', true]]) {
+      fs.rmSync(rcJson, { force: true })
+      const result = runPostinstall({ INIT_CWD: fixture, IVUORINEN_STYLELINT_NO_POSTINSTALL: value })
+      assert.strictEqual(result.status, 0, `postinstall exited ${result.status}\n${result.stderr}`)
+      assert.strictEqual(
+        fs.existsSync(rcJson),
+        expectWrite,
+        `IVUORINEN_STYLELINT_NO_POSTINSTALL=${value}: expected ${expectWrite ? 'a' : 'no'} .stylelintrc.json\n${result.stdout}`
+      )
+    }
+  })
+
   // ./css and ./scss must not be the same file; root must equal ./css.
   check(() => {
     assert.strictEqual(resolveFrom(PKG), resolveFrom(`${PKG}/css`), 'root and /css should be the css config')
