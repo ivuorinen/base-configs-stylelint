@@ -47,12 +47,12 @@ jobs:
         with:
           node-version-file: ".nvmrc"
 
-      - name: Install and enable corepack
+      - name: Enable corepack
         shell: sh
-        # Same pin as publish.yml so both paths resolve Yarn identically.
-        # Renovate has no manager for versions inside `run:`, so bump this by
-        # hand when corepack releases.
-        run: npm install -g corepack@0.35.0 --ignore-scripts --force && corepack enable
+        # .nvmrc pins Node 24, which bundles corepack, so nothing is installed
+        # outside the lockfile. Node 25+ does not bundle it: revisit this step
+        # (and publish.yml's) when .nvmrc moves past 24.
+        run: corepack enable
 
       # A dedicated job so it can be a required status on its own, separate from
       # the smoke test -- that one packs a tarball and deliberately has no local
