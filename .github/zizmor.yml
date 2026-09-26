@@ -1,7 +1,12 @@
 ---
 # zizmor configuration: https://docs.zizmor.sh/configuration/
 rules:
-  adhoc-packages:
-    # corepack must be bootstrapped globally; no lockfile applies
+  self-repository:
+    # The `$/` self-repository form zizmor suggests for the `./` reusable
+    # workflow calls is rejected by actionlint 1.7.12, the latest release,
+    # which pre-commit and PR Lint run; support is tracked in
+    # rhysd/actionlint#711. Switch to `$/` and drop this ignore once an
+    # actionlint release accepts it.
     ignore:
+      - pr-lint.yml
       - publish.yml

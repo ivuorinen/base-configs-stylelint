@@ -64,12 +64,12 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           scope: "@ivuorinen"
 
-      - name: Install and enable corepack
+      - name: Enable corepack
         shell: sh
-        # Version pinned so the toolchain is reproducible, and --ignore-scripts
-        # so nothing in the install tree executes. Renovate has no manager for
-        # versions inside `run:`, so bump this by hand when corepack releases.
-        run: npm install -g corepack@0.35.0 --ignore-scripts --force && corepack enable
+        # .nvmrc pins Node 24, which bundles corepack — no ad-hoc install in the
+        # job that holds the release credentials. Node 25+ does not bundle it:
+        # revisit this step (and pr-lint.yml's) when .nvmrc moves past 24.
+        run: corepack enable
 
       - name: Cache Node Modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
