@@ -5,7 +5,3 @@ rules:
     # corepack must be bootstrapped globally; no lockfile applies
     ignore:
       - publish.yml
-  use-trusted-publishing:
-    # npm trusted publishing requires registry-side setup; tracked separately
-    ignore:
-      - publish.yml
