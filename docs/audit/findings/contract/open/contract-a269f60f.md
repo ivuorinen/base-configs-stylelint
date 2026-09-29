@@ -108,3 +108,21 @@ choice between shipping this as a patch with a prominent note or as a major
 is a judgement about consumer impact, not a defect to be fixed.
 
 Suggested body text is in the Fix section above.
+
+## Re-validation — 2026-09-25 (still open)
+
+The change shipped. `f1a01ac` was the pre-squash hash; on `main` the rename is
+`71799ce fix: make the package usable on a clean install, and fix what the audit
+found (#178)`, first released in **v1.3.7** (previous tag v1.3.6) — a patch. The
+commit body describes the clean-install fixes but carries no SCSS note, and no
+`BREAKING CHANGE` footer.
+
+Amending the commit is no longer possible (pushed and tagged). The remaining fix
+is to edit the GitHub release notes of v1.3.7 to add the SCSS note from the Fix
+section above: `gh release edit v1.3.7 --notes-file <file>`.
+
+Severity note for the maintainer: the contract command classifies "stricter
+validation on an existing input" as breaking, and a breaking change inside a
+published patch release as Critical. This finding was recorded as Advisory by
+owner judgement (the rules were always meant to be enforced); that judgement is
+left as recorded, not overridden here.
