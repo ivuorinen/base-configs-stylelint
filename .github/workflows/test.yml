@@ -11,11 +11,19 @@ permissions: {}
 
 jobs:
   Test:
-    name: Smoke Test
+    name: Smoke Test (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
       contents: read # to check out the repository
+
+    strategy:
+      fail-fast: false
+      # The floor must match engines.node in package.json (>=20.19.0), so the
+      # support range this package advertises is one it has been run on. The
+      # smoke test packs and installs with npm, so no leg needs corepack.
+      matrix:
+        node-version: ["20.19.0", "22", "24", "26"]
 
     steps:
       - name: Checkout
@@ -26,7 +34,7 @@ jobs:
       - name: Setup Node.js Environment
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version-file: ".nvmrc"
+          node-version: ${{ matrix.node-version }}
 
       # Packs the repo and installs the tarball into a temp fixture, so it needs
       # no local install of its own.
