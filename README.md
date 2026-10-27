@@ -18,14 +18,15 @@
 
 ## Installation
 
-Install `this config` as a _`devDependencies`_:
+Install `this config` as a _`devDependencies`_, together with `stylelint`,
+which it requires as a peer dependency:
 
 ```sh
 # npm
-npm install @ivuorinen/stylelint-config --save-dev
+npm install @ivuorinen/stylelint-config stylelint --save-dev
 
 # Yarn
-yarn add @ivuorinen/stylelint-config --dev
+yarn add @ivuorinen/stylelint-config stylelint --dev
 ```
 
 Create a _`.stylelintrc.json`_ in the project's root folder with the following configuration:
