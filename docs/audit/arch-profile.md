@@ -39,18 +39,18 @@ the modules, which is what makes it able to catch `exports`-map and
 ## Constraints this shape imposes
 
 1. **`extends` strings are module specifiers, not paths.** Cross-module
-   composition inside the package must use `require.resolve('../css/index.cjs')`
-   so the resolved absolute path also anchors `plugins` resolution inside the
-   package. A bare relative string does not resolve.
+    composition inside the package must use `require.resolve('../css/index.cjs')`
+    so the resolved absolute path also anchors `plugins` resolution inside the
+    package. A bare relative string does not resolve.
 2. **Rule names are validated against the consumer's stylelint**, not this
-   package's. A rule the consumer's stylelint does not know is a lint-time
-   error, not an install-time one.
+    package's. A rule the consumer's stylelint does not know is a lint-time
+    error, not an install-time one.
 3. **Every published entry point is public API.** The `exports` map, the rule
-   set, and the postinstall's emitted specifier are all consumer-visible
-   surface; changes to them are semver-relevant.
+    set, and the postinstall's emitted specifier are all consumer-visible
+    surface; changes to them are semver-relevant.
 4. **The postinstall writes outside its own tree**, into `INIT_CWD`. That makes
-   it the only part of the package with an effect on a directory it does not
-   own — the highest-risk component despite being the smallest.
+    it the only part of the package with an effect on a directory it does not
+    own — the highest-risk component despite being the smallest.
 
 ## Audit result against this profile
 
