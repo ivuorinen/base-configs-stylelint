@@ -6,7 +6,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 // noinspection NpmUsedModulesInstalled
 const process = require('node:process')
-const checkConfig = require('@ivuorinen/config-checker')
+const { writeStarterConfig } = require('@ivuorinen/config-checker')
 
 const PKG = '@ivuorinen/stylelint-config'
 const log = (message) => console.log(`stylelint-config: ${message}`)
@@ -51,32 +51,24 @@ if (!isDirectDependency) {
   process.exit(0)
 }
 
-const foundConfig = checkConfig('stylelint')
+// writeStarterConfig never throws: it creates the file with 'wx', so a config a
+// concurrent install wrote between the check and the write is reported as
+// found rather than overwritten, and a failed write comes back for us to report.
+const starterConfig = { extends: [`${PKG}/css`] }
+const result = writeStarterConfig(
+  'stylelint',
+  '.stylelintrc.json',
+  JSON.stringify(starterConfig, undefined, 2),
+  initCwd
+)
 
-if (foundConfig.length > 0) {
+if (result.status === 'found') {
   log('Found existing stylelint config file, skipping creation.')
   log('If you want to create a new config file, please remove the existing one.')
-  log(`Found config files at: ${foundConfig.join(', ')}`)
-  process.exit(0)
-}
-
-const filePath = path.join(initCwd, '.stylelintrc.json')
-const starterConfig = { extends: [`${PKG}/css`] }
-const contents = `${JSON.stringify(starterConfig, undefined, 2)}\n`
-
-// Create-exclusive rather than existsSync-then-write: the 'wx' flag makes
-// "does it exist?" and "write it" one atomic syscall, so a concurrent install
-// cannot slip in between the two and get its config overwritten.
-try {
-  fs.writeFileSync(filePath, contents, { flag: 'wx' })
-  log(`wrote ${filePath}`)
-} catch (error) {
-  if (error.code === 'EEXIST') {
-    log(`${filePath} already exists, leaving it alone.`)
-    process.exit(0)
-  }
-
+  log(`Found config files at: ${result.found.join(', ')}`)
+} else if (result.status === 'written') {
+  log(`wrote ${result.filePath}`)
+} else {
   // Still never a reason to fail the install -- report and move on.
-  log(`could not write ${filePath}: ${error.message}`)
-  process.exit(0)
+  log(`could not write ${result.filePath}: ${result.error.message}`)
 }

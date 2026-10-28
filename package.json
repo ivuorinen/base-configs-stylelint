@@ -54,7 +54,7 @@
     "test": "node test/smoke.mjs"
   },
   "dependencies": {
-    "@ivuorinen/config-checker": "^2.2.1",
+    "@ivuorinen/config-checker": "^2.7.0",
     "postcss": "^8.5.18",
     "stylelint-config-recommended-scss": "^17.0.0",
     "stylelint-config-standard": "^40.0.0",
