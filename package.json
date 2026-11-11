@@ -57,7 +57,7 @@
     "@ivuorinen/config-checker": "^2.7.0",
     "postcss": "^8.5.18",
     "stylelint-config-recommended-scss": "^17.0.0",
-    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard": "^41.0.0",
     "stylelint-order": "^8.1.1",
     "stylelint-scss": "^7.0.0"
   },
