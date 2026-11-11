@@ -391,7 +391,7 @@ __metadata:
     stylelint-order: "npm:^8.1.1"
     stylelint-scss: "npm:^7.0.0"
   peerDependencies:
-    stylelint: ^17.0.0
+    stylelint: ^18.0.0
   languageName: unknown
   linkType: soft
 
