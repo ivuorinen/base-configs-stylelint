@@ -69,6 +69,6 @@
     "@ivuorinen/eslint-config": "^2.0.0",
     "@ivuorinen/semantic-release-config": "^3.0.0",
     "eslint": "^10.7.0",
-    "stylelint": "^17.6.0"
+    "stylelint": "^18.0.0"
   }
 }
