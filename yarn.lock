@@ -388,7 +388,7 @@ __metadata:
     stylelint: "npm:^18.0.0"
     stylelint-config-recommended-scss: "npm:^17.0.0"
     stylelint-config-standard: "npm:^40.0.0"
-    stylelint-order: "npm:^8.1.1"
+    stylelint-order: "npm:^9.0.0"
     stylelint-scss: "npm:^7.0.0"
   peerDependencies:
     stylelint: ^17.0.0
@@ -4393,12 +4393,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-sorting@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "postcss-sorting@npm:10.0.0"
+"postcss-sorting@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "postcss-sorting@npm:11.0.0"
   peerDependencies:
     postcss: ^8.4.20
-  checksum: 10c0/2e53560ccfaefb6ccfaa44cd258735f815de7a06ff6c79e6fb0fe789422f10242266044902c716e2eec9680879d7e0872b4ecd5d89e9bd8670f6d9f6c3ce5adc
+  checksum: 10c0/74b7039312f0a7b9e30ae93a347f01306fe0eed705c13281a981253f8b4a4a679ef6552b4bcca61c1c95fb83dc52df8d93c7a9bbb66f7485d33bd575f0e7fad6
   languageName: node
   linkType: hard
 
@@ -4409,7 +4409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.5.18, postcss@npm:^8.5.28, postcss@npm:^8.5.31":
+"postcss@npm:^8.5.18, postcss@npm:^8.5.31, postcss@npm:^8.5.33":
   version: 8.5.33
   resolution: "postcss@npm:8.5.33"
   dependencies:
@@ -5157,15 +5157,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-order@npm:^8.1.1":
-  version: 8.1.2
-  resolution: "stylelint-order@npm:8.1.2"
+"stylelint-order@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "stylelint-order@npm:9.0.0"
   dependencies:
-    postcss: "npm:^8.5.28"
-    postcss-sorting: "npm:^10.0.0"
+    postcss: "npm:^8.5.33"
+    postcss-sorting: "npm:^11.0.0"
   peerDependencies:
-    stylelint: ^16.18.0 || ^17.0.0
-  checksum: 10c0/f0a4cd0f811086798ed0cddeccebd88342b06122cf8e6e0836b01fb125c701016769eda7ed037976b37ea7124d72bc43110b438c0d589d648211920df59d4c0b
+    stylelint: ^16.18.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/470ae49dfd34162633ca186b39ce26ee29ad048bbf14203cc3a8e8e3faa16ff200b049f9f034b4898deedb61779acaa975b686959a824e86341d345e7c109e9a
   languageName: node
   linkType: hard
 
